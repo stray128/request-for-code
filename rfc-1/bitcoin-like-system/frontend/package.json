@@ -1,0 +1,20 @@
+{
+  "name": "bitcoin-like-system",
+  "version": "1.0.0",
+  "main": "central-server/server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "elliptic": "^6.5.7",
+    "express": "^4.21.0",
+    "sqlite3": "^5.0.2",
+    "ws": "^8.18.0"
+  },
+  "description": ""
+}

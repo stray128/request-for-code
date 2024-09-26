@@ -1,0 +1,13 @@
+{
+  "miners": [
+    {
+      "address": "09371f0599c1e22453290e7bf35c3f66fb29d2cb05061f0f952ecbbdaa1afcf6",
+      "httpPort": "3001"
+    },
+    {
+      "address": "032b99e2472e5d30802c45b1e68069549d5f211abb4edfffcc252da38e006a6d",
+      "httpPort": "3002"
+    }
+  ],
+  "wallets": []
+}

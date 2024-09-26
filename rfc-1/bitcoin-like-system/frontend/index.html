@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Bitcoin-like Wallet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elliptic/6.5.4/elliptic.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            display: none;
+        }
+        .section {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        #addressPagination {
+            margin-top: 10px;
+        }
+        #addressPagination button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Bitcoin-like Wallet</h1>
+    
+    <div class="section">
+        <h2>Wallet</h2>
+        <button id="createWallet">Create New Wallet</button>
+        <div id="loginForm">
+            <h3>Login</h3>
+            <input type="text" id="loginPublicKey" placeholder="Public Key">
+            <input type="password" id="loginPrivateKey" placeholder="Private Key">
+            <button id="loginButton">Login</button>
+        </div>
+    </div>
+
+    <div id="walletInfo" class="section" style="display:none;">
+        <h2>Wallet Information</h2>
+        <p>Public Key: <span id="publicKey"></span></p>
+        <p>Private Key: <span id="privateKey"></span></p>
+        <p>Balance: <span id="balance">0</span> <button id="updateBalance">Update Balance</button></p>
+        <button id="faucet">Get 100 coins from faucet</button>
+    </div>
+
+    <div class="section">
+        <h2>Send Transaction</h2>
+        <form id="sendTransaction">
+            <label for="recipient">Recipient Address:</label>
+            <input type="text" id="recipient" required><br>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" required><br>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Network Information</h2>
+        <button id="getActiveNodes">Get Active Nodes</button>
+        <p>Active Nodes: <span id="activeNodesCount">0</span></p>
+    </div>
+
+    <div class="section">
+        <h2>Known Addresses</h2>
+        <ul id="knownAddresses"></ul>
+        <div id="addressPagination"></div>
+    </div>
+
+    <div class="section">
+        <h2>Blockchain Details</h2>
+        <button id="getBlockchainDetails">Get Blockchain Details</button>
+        <div id="blockchainDetails" style="display:none;">
+            <p>Total Tokens Fauceted: <span id="totalFauceted"></span></p>
+            <p>Total Mining Rewards: <span id="totalMiningRewards"></span></p>
+            <p>Blockchain Length: <span id="blockchainLength"></span></p>
+            <p>Block Reward: <span id="blockReward"></span></p>
+        </div>
+    </div>
+
+    <div id="notification"></div>
+
+    <script src="wallet.js"></script>
+</body>
+</html>
